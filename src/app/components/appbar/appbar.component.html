@@ -1,0 +1,27 @@
+<div class="appbar-container">
+    <div class="appbar-header">
+        <div>Applications</div>
+    </div>
+    <div class="run-types" *ngIf="clickedSidebarItem === 'Bugs'">
+        <div><button [ngClass]="buttonClicked === 'DR' ? 'clickedButton' : ''" (click)="onClick('DR')">DR</button></div>
+        <div><button [ngClass]="buttonClicked === 'LR' ? 'clickedButton' : ''" (click)="onClick('LR')">LR</button></div>
+        <div><button [ngClass]="buttonClicked === 'RI' ? 'clickedButton' : ''" (click)="onClick('RI')">RI</button></div>
+    </div>
+    <div class="applist-container" [class.height83]="clickedSidebarItem !== 'Server Status' && clickedSidebarItem !== 'Result' && clickedSidebarItem !== 'Bugs'">
+        <div *ngFor="let app of applist" class="app" (click)="onAppClick(app)">
+            
+            <div class="app-info">
+                <div>{{app.title}}</div>
+                <div>
+                    <span>APP - {{app.appInfrastructure}} C</span>
+                    <span>DB - {{app.dbInfrastructure}} C</span>
+                </div>
+            </div>
+            <div class="app-status" [class.on]="app.status" [class.off]="!app.status">
+                <div ></div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

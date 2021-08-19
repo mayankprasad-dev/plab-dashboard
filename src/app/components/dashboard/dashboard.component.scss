@@ -1,0 +1,66 @@
+.dashboard {
+    background-color: #fff;
+
+    .header {
+      min-height: 7vh;
+      height: 100%;
+    }
+  
+    .content {
+      min-height: 93vh;
+      
+      .left-side {
+        width: 12%;
+      }
+  
+      .middle {
+        // margin-left: 12%;
+        width: 20%;
+      }
+    
+      .right-side {
+        // margin-left: 32%;
+        // min-width: 68%;
+        overflow: auto;
+        height: 90vh;
+        padding: 20px 25px 0px;
+      }
+
+      .result {
+        width: 88%;
+        padding: 10px 20px;
+        overflow: auto;
+        height: 95vh;
+      }
+    }
+    .profile-header {
+       text-align: center;
+    }
+    .profile-info {
+      flex-direction: column;
+      align-content: center;
+      .title {
+        color: rgb(141, 151, 173);
+        font-size: 15px;
+        min-width: 400px;
+        margin-right: 5px;
+      }
+      .content-info {
+        color: rgb(37, 42, 51);
+        font-weight: bold;
+        font-size: 15px;
+      }
+    }
+  }
+  
+  // .sidebar, .appbar {
+  //   // position: fixed;
+  //   // top: 0;
+  // }
+
+  .dashing{
+    width: 88%;
+    padding: 10px 20px;
+    overflow: auto;
+    height: 95vh;
+  }

@@ -1,0 +1,113 @@
+
+.mat-button{
+  
+  margin-bottom: 15px;
+}
+
+.mat-dialog-actions {
+  display: inline;
+  padding: 0px;
+}
+
+
+:host ::ng-deep .mat-dialog-container{
+  background-color: red;
+  overflow: hidden ;
+}
+
+.tab {
+  margin: 0px -27px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #352c2c;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: #5a5858;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.3s;
+  font-size: 17px;
+  color: white;
+  margin-left: 2px;
+
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+  color: black
+  
+}
+
+/* Create an active/current tablink class */
+.tab button.open {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.section {
+  -webkit-animation: fadeEffect 0.5s;
+  animation: fadeEffect 0.5s;
+}
+
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.grid-cell-centered {
+  text-align: center;
+}
+
+.loader {
+  justify-content: center;
+  // padding: 200px 200px;
+  border-top: 16px solid blue;
+  border-right: 16px solid green;
+  border-bottom: 16px solid red;
+  border-left: 16px solid pink;
+  // border: 16px solid #f3f3f3; /* Light grey */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.download_btn :hover{
+  transform: scale(1.1);
+}
+
+.download_btn :active{
+  transform: scale(0.9);
+}
+
+// ::ng-deep .ag-header-cell{
+//   background-color: green;
+// }
+
+
+// :host ::ng-deep .ag-root-wrapper.ag-layout-normal.ag-ltr.ag-keyboard-focus{
+//   height: 1000px;
+// }

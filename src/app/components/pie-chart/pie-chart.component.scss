@@ -1,0 +1,47 @@
+#pieChart{
+    width: 59%;
+    background-color: white;
+    height: 55vh;
+    margin-top:15px;
+    overflow-x: auto;
+    border-radius: 5px;
+    box-shadow: 1px 1px 20px 1px;
+    float: left;
+}
+
+#openBugText{
+    font: "Segoe UI";
+}
+
+
+#metricOpenBug{
+    padding-top: 40px;
+    float: right;
+    width: 40%;
+    background-color: white;
+    height: 55vh;
+    margin-top: 15px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 20px 1px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#chartName{
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+#resolution{
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 20px 1px;
+    float: left;
+    margin-top: 15px;
+    height: 400px;
+}
+

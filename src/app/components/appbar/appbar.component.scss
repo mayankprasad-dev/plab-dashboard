@@ -1,0 +1,81 @@
+.appbar-container {
+    height: 100%;
+    min-height: 93vh;
+    border-right: 1px solid rgb(229, 232, 236);
+    .appbar-header {
+        // background-color: white;
+        text-align: center;
+        font-weight: bold;
+        padding: 17px;
+        border-bottom: 1px solid rgb(229, 232, 236);
+    }
+    .run-types {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;
+        border-bottom: 1px solid rgb(229, 232, 236);
+        
+        button {
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #0079c9;
+            border-color: #0079c9;
+            background-color: #fff;
+            outline: none;
+            &:hover {
+                background-color: #0079c9;
+                color: #fff;
+              }
+        }
+
+        .clickedButton {
+            
+            background-color: #0079c9;
+            color: #fff;
+        }
+    }
+    .applist-container {
+        padding: 10px 20px;
+        overflow: auto;
+        height: 75vh;
+        // margin-bottom: 7px;
+        cursor: pointer;
+        .app {
+            border: 1px solid rgb(229, 232, 236);
+            border-radius: 4px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            .app-info {
+                >div:nth-child(1) {
+                    font-size: 15px;
+                    font-weight: bold;
+                }
+                >div:nth-child(2) {
+                    font-size: 10px;
+                    >span {
+                        margin-right: 15px;
+                        color: rgb(104, 121, 145);
+                    }
+                }
+            }
+            .app-status {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                margin-top: 10px;
+            }
+            .on {
+                background-color: green;
+            }
+            .off {
+                background-color: red;
+            }
+        }
+    }
+    .height83{
+        height: 83vh;
+    }
+}
+

@@ -1,0 +1,75 @@
+<div *ngIf="result_type !== 'Comparision'" style="display: flex; justify-content: space-between; max-height: 5%; ">
+  <h2 mat-dialog-title style="margin: -10px;">{{result_type}}: {{title}}</h2>
+  <mat-dialog-actions>
+    <div mat-button matDialogClose style="cursor: pointer; border: transparent; background: transparent; margin: -10px">
+      <i class="fa fa-times-circle fa-2x" aria-hidden="false"></i>
+    </div>
+  </mat-dialog-actions>
+</div>
+
+<div *ngIf="result_type === 'Comparision'" style="display: flex; justify-content: space-between; max-height: 20%; ">
+  <h3 mat-dialog-title style=" font-weight: bold; ">{{result_type}}: {{title}}</h3>
+  <mat-dialog-actions>
+    <div style="display: flex;">
+      <div style="margin: -14px 20px 10px 12px;">
+        <a class="download_btn" mat-button (click)="downloadReport()" target="_blank"
+          style="cursor: pointer; border: transparent; background: transparent;"
+          data-toggle="tooltip" data-placement="bottom" title="Download Report">
+          <i class="fa fa-download fa-2x" aria-hidden="false" style="color: black; padding-top: 4px;"></i>
+        </a>
+      </div>
+
+      <div class="download_btn" mat-button matDialogClose data-toggle="tooltip" data-placement="bottom" title="Close"
+        style="cursor: pointer; border: transparent; background: transparent; margin: -10px">
+        <i class="fa fa-times-circle fa-2x" aria-hidden="false"></i>
+      </div>
+    </div>
+  </mat-dialog-actions>
+</div>
+
+<mat-dialog-content *ngIf="result_type !== 'Comparision'" class="mat-typography"
+  style="border: groove; background-color: white; max-height: 95%;">
+  <div style="padding-left: 20px; margin-top: 5px;" [innerHTML]="result_html"></div>
+</mat-dialog-content>
+
+<mat-dialog-content *ngIf="result_type === 'Comparision'" class="mat-typography"
+  style="border: 0px groove; background-color: white; height:96%; max-height: 100%; overflow: hidden">
+  
+  <div class="tab">
+    <button class="tablinks" (click)="openTab(event, 'counters')"  
+    [style.background-color]="content_to_show === 'counters' ? '#ddd': '#5a5858'"
+    [style.color]="content_to_show === 'counters' ? 'black': 'white'">Performance Counters</button>
+
+    <button class="tablinks" (click)="openTab(event, 'result')" 
+    [style.background-color]="content_to_show === 'result' ? '#ddd': '#5a5858'"
+    [style.color]="content_to_show === 'result' ? 'black': 'white'">Results</button>
+
+    <button class="tablinks" (click)="openTab(event, 'graphs')" 
+    [style.background-color]="content_to_show === 'graphs' ? '#ddd': '#5a5858'"
+    [style.color]="content_to_show === 'graphs' ? 'black': 'white'">Graphs</button>
+
+  </div>
+
+  <div style="justify-content: space-evenly; display: flex; padding: 180px;" *ngIf="loading">
+    <div class="loader"></div>
+    <!-- <div>Servers Loading...</div> -->
+  </div>
+
+
+  <div class="section" *ngIf="content_to_show === 'counters'" style="height: 100%;">
+    <ag-grid-angular style="width: 105%; height: 88%; margin: 0px -24px; border:blanchedalmond" class="ag-theme-alpine"
+      [defaultColDef]="defaultColDef" [rowData]="rowData_pc" [columnDefs]="columnDefs_Counters" 
+      (gridReady)="onGridReady_counter($event)">
+    </ag-grid-angular>
+  </div>
+
+  <div class="section" *ngIf="content_to_show === 'result'" style="height: 100%;">
+    <ag-grid-angular style="width: 105%; height: 88%; margin: 0px -24px; border:blanchedalmond" class="ag-theme-alpine"
+      [defaultColDef]="defaultColDef" [rowData]="rowData" [getRowStyle]="getRowStyle" [rowStyle]="rowStyle"
+      [columnDefs]="columnDefs" (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+  </div>
+
+
+</mat-dialog-content>
+

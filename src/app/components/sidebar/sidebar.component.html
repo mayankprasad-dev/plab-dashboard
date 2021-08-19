@@ -1,0 +1,30 @@
+<div class="sidebar-container">
+    
+    <div class="menuList">
+        <ul>
+            <li *ngFor="let menu of menuItems">
+                <div (click)="setmenu(menu)" class="row" [class.open]="menu.isOpen">
+                    <!-- <div class="icon-image" [class.open]="menu.isOpen"><i class="fa" 
+                        [ngClass]="{'fa-terminal': true,
+                                    'fa-terminal': menu.name === 'server',
+                                    'fa-terminal': menu.name === 'result',
+                                    'fa-terminal': menu.name === 'analysis',
+                                    'fa-terminal': menu.name === 'bugs',
+                                    'fa-terminal': menu.name === 'test',
+                                    'fa-terminal': menu.name === 'server',
+                                    'fa-terminal': menu.name === 'sit'}" aria-hidden="true"></i></div>
+                    <div>{{menu?.title}}</div> -->
+                    <div class="icon-image" [class.open]="menu.isOpen">
+                        <i *ngIf= "menu?.title === 'SIT Results'" class="fa fa-sitemap" aria-hidden="true"></i>
+                        <i *ngIf= "menu?.title === 'Dashboard'" class="fa fa-industry" aria-hidden="true"></i>
+                        <i *ngIf= "menu?.title === 'Server Status'" class="fa fa-power-off" aria-hidden="true"></i>
+                        <i *ngIf= "menu?.title === 'Result'" class="fa fa-tasks" aria-hidden="true"></i>
+                        <i *ngIf= "menu?.title === 'Comparision'" class="fa fa-cogs" aria-hidden="true"></i>
+                    </div>
+                    <div>{{menu?.title}}</div>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

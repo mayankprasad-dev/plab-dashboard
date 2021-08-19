@@ -1,0 +1,29 @@
+<div style="display: block; width: 100%;">
+    <div id="pieChart">
+        <div *ngIf="loader" style="padding-top: 18%; padding-left: 45%;">
+            <mat-spinner></mat-spinner>
+        </div>
+        <canvas id="myPieChart">{{server_data}}</canvas>
+    </div>
+
+    
+    <div id="metricOpenBug">
+        <div *ngIf="totalBugs" id="chartName">
+            <a style="color: rgb(106, 103, 102);">Open vs Closed Bug Count</a>
+        </div>
+        <div *ngIf="loader" style="padding-top: 18%; padding-left: 45%;">
+            <mat-spinner></mat-spinner>
+        </div>
+        <canvas id="openBug" height="150%" style="margin-top: 25px;"></canvas>
+    </div>
+
+    <div id="resolution">
+        <div *ngIf="loader" style="padding-top: 12%; padding-left: 45%;">
+            <mat-spinner></mat-spinner>
+        </div>
+        <canvas id="resolutionChart" ></canvas>
+    </div>
+
+</div>
+
+

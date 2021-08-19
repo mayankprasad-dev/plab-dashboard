@@ -1,0 +1,75 @@
+<div class="dashboard" id="dashboard">
+  <div class="header">
+    <app-header (showProfileEmit)="showProfile($event)"></app-header>
+  </div>
+  <div class="row content" *ngIf="!showProfileInfo">
+    <div class="sidebar left-side">
+      <app-sidebar (clickedItem)="clickedItem($event)"> </app-sidebar>
+    </div>
+    <div *ngIf="clickedMenuItem === 'Result'" class="result">
+      <app-results></app-results>
+    </div>
+    <div class="appbar middle"
+      *ngIf="clickedMenuItem === 'Bugs' || clickedMenuItem === 'Test Run Status' || clickedMenuItem === 'Knowledge Book'">
+      <app-appbar [clickedSidebarItem]="clickedMenuItem" (fileToRender)="fileToRenderInUI($event)"></app-appbar>
+    </div>
+    <div class="col-md-10 right-side" *ngIf="clickedMenuItem === 'None'">
+      <div class="no-item-container">
+        <div class="no-item"></div>
+        <div class="mt-2 no-item-text">Welcome to PLAB Dashboard. Click on sections to get information</div>
+      </div>
+    </div>
+
+    <div class="dashing" style="background-color: lavender;" *ngIf="clickedMenuItem == 'Dashboard'">
+      <div>
+        <app-line-chart></app-line-chart>
+        <app-pie-chart></app-pie-chart>
+      </div>
+    </div>
+
+    <div class="result" *ngIf="clickedMenuItem == 'Server Status'">
+      <app-serverstatus></app-serverstatus>
+    </div>
+
+    <div class="result" *ngIf="clickedMenuItem == 'SIT Results'">
+      <app-smart-table></app-smart-table>
+    </div>
+
+    <div class="result" *ngIf="clickedMenuItem == 'Comparision'" style="overflow: auto">
+      <div>
+        <app-result-compare></app-result-compare>
+      </div>
+    </div>
+
+  </div>
+  <div *ngIf="showProfileInfo">
+
+    <div class="profile-header" style="display: flex;">
+      PROFILE
+    </div>
+
+    <div class="profile-info row">
+
+      <div>
+        <span class="title">Name</span>
+        <span class="content-info">Mayank Prasad</span>
+      </div>
+      <div>
+        <span class="title">Role</span>
+        <span class="content-info">MTS</span>
+      </div>
+      <div>
+        <span class="title">Team</span>
+        <span class="content-info">PLAB R&D</span>
+      </div>
+      <div>
+        <span class="title">Email Id</span>
+        <span class="content-info">mayank.prasad@metricstram.com</span>
+      </div>
+      <div>
+        <span class="title">Phone no.</span>
+        <span class="content-info">7073060262</span>
+      </div>
+    </div>
+  </div>
+</div>

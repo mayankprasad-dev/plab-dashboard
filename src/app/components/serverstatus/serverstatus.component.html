@@ -1,0 +1,53 @@
+<div class="serverStatus">
+  <div>SERVER STATUS</div>
+  <div id="refresh" align="right" title="Refresh" style="cursor: pointer; float: right; margin-top: -18px;"
+    (click)="refresh()">
+    <i class="fa fa-retweet fa-lg" aria-hidden="true"></i>
+  </div>
+</div>
+<div>
+  <div style="justify-content: space-evenly; display: flex; padding: 200px 200px;" *ngIf="loading">
+    <div class="loader"></div>
+    <!-- <div>Servers Loading...</div> -->
+  </div>
+
+  <a *ngFor="let app of appDetails" class="col-1-4 app">
+    <div class="app-info">
+      <div class="app">{{app.title}}</div>
+      <div>
+        <div class="row">
+          <div class="col-md-4">
+            <label class="switch">
+              <input [(ngModel)]="app.app_status" type="checkbox"
+                (ngModelChange)="onCheckboxChange($event,app.title+'@APP', app)" [checked]="app.app_status">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="col-md-4">
+            <label class="switch">
+              <input [(ngModel)]="app.db_status" type="checkbox"
+                (ngModelChange)="onCheckboxChange($event,app.title+'@DB', app)" [checked]="app.db_status">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="col-md-4">
+            <label class="switch">
+              <input [(ngModel)]="app.win_status" type="checkbox"
+                (ngModelChange)="onCheckboxChange($event,app.title+'@WIN', app)" [checked]="app.win_status">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4" style="font-weight: bold; font-size: 11px;">APP - {{app.appInfrastructure}}C
+          </div>
+          <div class="col-md-4" style="font-weight: bold; font-size: 11px;">DB - {{app.dbInfrastructure}}C
+          </div>
+          <div class="col-md-4" style="font-weight: bold; font-size: 11px;">WIN - {{app.winInfrastructure}}C
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </a>
+</div>

@@ -1,0 +1,47 @@
+:host ::ng-deep  {
+    ng2-smart-table-pager{
+        justify-content: center;
+    }
+    tbody tr:nth-child(even) {
+        background: lavender;
+      }
+      tbody tr:nth-child(odd) {
+        background: #dee2e6;
+      }
+    }
+
+.results {
+    border: 1px solid rgb(229, 232, 236);
+    border-radius: 4px;
+    margin: 0px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.totalRecs{
+    border: 1px solid rgb(229, 232, 236);
+    border-radius: 4px;
+    text-align: center;
+}
+
+:host ::ng-deep .mat-dialog-container{
+    background-color: red;
+  }
+
+
+
+
+.result-container {
+    height: 100%;
+    min-height: 93vh;
+    border-right: 1px solid rgb(229, 232, 236);
+    .result-header {
+        // background-color: white;
+        text-align: center;
+        font-weight: bold;
+        padding: 17px;
+        border-bottom: 1px solid rgb(229, 232, 236);
+    }
+}

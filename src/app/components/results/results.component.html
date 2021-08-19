@@ -1,0 +1,75 @@
+<div style="margin-bottom: 10px;" class="results">
+    <div>LOAD TEST RESULTS</div>
+</div>
+
+<ng2-smart-table [settings]="settings"  [source]="source" (custom)="openDialog($event)"></ng2-smart-table>
+
+<div class='totalRecs' *ngIf="totalRows">
+    Total Records: {{totalRows}}
+</div>
+
+
+<!-- <div class="result-container">
+    <div class="result-header row">
+        <div class="col-3">
+            <label for="releaseName">Release Name</label>
+  
+            <div>
+                <select id="releaseName" name="releaseName"
+                [(ngModel)]="result.releaseName" #releaseName="ngModel" (change)="onReleaseNameSelect()">
+                <option [ngValue]="null" disabled>Release Name</option>
+                <option *ngFor="let name of releaseNameList" [ngValue]="name">{{name}}
+                </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-3">
+            <label for="appName">Application Name</label>
+  
+            <div>
+                <select id="appName" name="appName"
+                [(ngModel)]="result.appName" #appName="ngModel" (change)="onAppNameSelect()">
+                <option [ngValue]="null" disabled>Application Name</option>
+                <option *ngFor="let name of appNameList" [ngValue]="name">{{name}}
+                </option>
+                </select>
+            </div>
+        </div>
+        <div class="col-3">
+            <label for="testType">Test Type</label>
+  
+            <div>
+                <select id="testType" name="testType"
+                [(ngModel)]="result.testType" #testType="ngModel" (change)="onTestTypeSelect()">
+                <option [ngValue]="null" disabled>Test Type</option>
+                <option *ngFor="let type of testTypeList" [ngValue]="type">{{type}}
+                </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <label for="runNumber">Run Number</label>
+  
+            <div>
+                <select id="runNumber" name="runNumber"
+                [(ngModel)]="result.runNumber" #runNumber="ngModel" (change)=fileToRenderInUI()>
+                <option [ngValue]="null" disabled>Run Number</option>
+                <option *ngFor="let run of runNumberList" [ngValue]="run">{{run}}
+                </option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div style="padding: 20px 25px 0px;">
+        <div *ngIf="fileToRender">
+          <div [innerHTML]="fileToRender"></div>
+        </div>
+
+    <div *ngIf="!fileToRender" class="no-item-container">
+          <div class="no-item"></div>
+          <div class="mt-2 no-item-text">No information found. Click on everything to get information</div>
+        </div>
+
+    </div>
+</div> -->

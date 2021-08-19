@@ -1,0 +1,108 @@
+<div  class="container">
+
+  <div style="margin-bottom: 10px;" class="comparision">
+    <div>RESULT COMPARISION</div>
+  </div>
+
+  <!-- <form [formGroup]="resultCompare" (ngSubmit)="onSubmit()" (custom)="openDialog($event)"> -->
+  <form [formGroup]="resultCompare" (ngSubmit)="openDialog()">
+
+    <p>
+      <label for="app_name" style="font-weight: bold;">Application Name:</label>
+      <select id="app_name" app_name="app_name" formControlName="app_name" class="form-control"
+        (change)="onAppNameSelect($event.target.value)">
+        <option id="category" value="" disabled>Please choose an application</option>
+        <option *ngFor="let app of appNameList" value={{app}}>{{app}}</option>
+      </select>
+    </p>
+
+    <p>
+      <label for="conditions" style="font-weight: bold;">Result Condition:</label>
+      <select id="conditions" formControlName="test_condition" class="form-control"
+        (change)="onConditionSelect($event.target.value)">
+        <option value="" disabled>Please choose a Test Condition</option>
+        <option *ngFor="let type_of of typesOfResult" value={{type_of}}>{{type_of}}</option>
+      </select>
+    </p>
+
+
+    <!-- <p>
+      <label for="condition" style="font-weight: bold;">Test Conditions:</label>
+      <select id="condition" (change)="onConditionSelect($event.target.value)" class="form-control">
+        <option  value="" disabled>Please choose an Test Condition</option>
+        <option *ngFor="let type_of of typesOfResult" value={{type_of}}>{{type_of}}</option>
+      </select>
+    </p> -->
+
+    <p>
+      <label style="font-weight: bold;">Compare Result:</label>
+      <select id="release" name="release_name" formControlName="release_name" class="form-control"
+        (change)="onReleaseNameSelect($event.target.value, 'c_main', '-')">
+        <option value="" disabled>Please choose a release</option>
+        <option *ngFor="let rn of releaseNameList" value={{rn}}>{{rn}}</option>
+      </select>
+    </p>
+
+    <p>
+      <select id="test-type" name="test_type" formControlName="test_type" class="form-control"
+        (change)="onTestTypeSelect($event.target.value, 'c_main', '-')">
+        <option value="" disabled>Please choose a test type</option>
+        <option *ngFor="let tt of testTypeList" value={{tt}}>{{tt}}</option>
+      </select>
+    </p>
+
+    <p>
+      <select id="test-run-no" name="test_run_no" formControlName="test_run_no" class="form-control"
+        (change)="onRunNoSelect('c_main')">
+        <option value="" disabled>Please choose run number</option>
+        <option *ngFor="let trn of runNumberList" value={{trn}}>{{trn}}</option>
+
+      </select>
+    </p>
+
+
+
+    <table class="table table-bordered" formArrayName="data">
+      <tr>
+        <th colspan="3">Compare With:</th>
+        <th width="150px"><button type="button" (click)="addRow()" class="btn btn-primary" [disabled]="addMoreStatus  === true">Add Row</button></th>
+      </tr>
+      <tr *ngFor="let quantity of dataSet().controls; let i=index" [formGroupName]="i">
+        <td>
+          Release Name :
+          <select id="release_{{i}}" name="release_name" formControlName="release_name" class="form-control"
+            (change)="onReleaseNameSelect($event.target.value, 'c_sub', i)">
+            <option value="" disabled>Select</option>
+            <option *ngFor="let rn of releaseNameList" value={{rn}}>{{rn}}</option>
+          </select>
+        </td>
+
+        <td>
+          Test Type:
+          <select id="test_type_{{i}}" name="test_type" formControlName="test_type" class="form-control"
+            (change)="onTestTypeSelect($event.target.value, 'c_sub', i)">
+            <option value="" disabled>Select</option>
+            <option *ngFor="let tt of test_type_responses[i]" value={{tt}}>{{tt}}</option>
+          </select>
+        </td>
+        <td>
+          Test Run Number:
+          <select id="test_run_no_{{i}}" name="test_run_no" formControlName="test_run_no" class="form-control"
+            (change)="onRunNoSelect('c_sub')">
+            <option value="" disabled>Select</option>
+            <option *ngFor="let trn of run_no_responses[i]" value={{trn}}>{{trn}}</option>
+          </select>
+        </td>
+        <td>
+          <button (click)="removeRow(i)" class="btn btn-danger">Remove</button>
+        </td>
+      </tr>
+    </table>
+
+    <button type="submit" class="btn btn-success" [disabled]="submitStatus === true">Submit</button>
+
+  </form>
+
+  <br />
+  <!-- {{this.resultCompare.value | json}} -->
+</div>
